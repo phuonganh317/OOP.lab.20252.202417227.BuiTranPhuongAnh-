@@ -1,0 +1,26 @@
+1. Compare Swing and AWT:
+AWT and Swing are similar because both provide GUI components, containers, layout managers, and event-handling mechanisms. However, AWT uses heavyweight components such as Frame, Label, and TextField, while Swing uses lightweight components such as JFrame, JLabel, and JTextField. In Swing, components are usually added to the content pane of a JFrame instead of directly to the top-level container.
+
+2. NumberGrid:
+The NumberGrid application uses a JFrame with BorderLayout. The display text field is placed in the NORTH area, while the number buttons are placed in a JPanel using GridLayout. Digit buttons append their value to the display. The DEL button removes the last character, and the C button clears the display.
+
+3. JavaFX Painter:
+The Painter application uses an FXML file to define the user interface, a controller class to handle events, and an Application class to load the FXML and show the stage. Drawing is implemented by adding small Circle objects to the Pane at the mouse position when the mouse is dragged.
+
+4. Eraser:
+The eraser can be implemented similarly to the pen, but it draws white circles instead of black circles. Since the drawing area has a white background, this creates the effect of erasing.
+
+5. JavaFX TableView in CartScreen:
+The TableView displays the list of media items in the cart. The cart's itemsOrdered list is changed to ObservableList so that changes such as adding or removing items can be observed and automatically reflected in the TableView. PropertyValueFactory is used to map table columns to the corresponding getter methods of Media, such as getTitle(), getCategory(), and getCost().
+
+6. ChangeListener:
+A ChangeListener is added to the selectedItemProperty of the TableView. Whenever the selected media changes, the button bar is updated. The Remove button is shown for all selected media, while the Play button is shown only if the selected media implements the Playable interface.
+
+7. PlayerException:
+PlayerException is a user-defined checked exception. It is thrown when a playable media has invalid length, such as length less than or equal to zero. The play() methods in DVD, Track, and CompactDisc declare throws PlayerException, and the caller handles it using try-catch.
+
+8. What happens if Aims is not updated to catch PlayerException?
+Since PlayerException extends Exception, it is a checked exception. If a play() method throws PlayerException and the caller does not catch or declare it, the program will not compile.
+
+9. Media equals():
+Two Media objects are considered equal if they have the same title. The equals() method checks for null and uses instanceof to avoid NullPointerException and ClassCastException.
